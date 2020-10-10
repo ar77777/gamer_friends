@@ -1,0 +1,17 @@
+<div class ="sign-up">
+  <div class = "box-inner">
+    <h2>新規登録</h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.text_field :nickname, autofocus: true, class: "field", placeholder: "ニックネーム", autocomplete: "nickname" %>
+        <%= f.text_field :sex_id, autofocus: true, class: "field", placeholder: "性別", autocomplete: "sex" %>
+        <%= f.text_field :age_id, autofocus: true, class: "field", placeholder:"年齢", autocomplete: "age" %>
+        <%= f.email_field :email, autofocus: true, class: "field", placeholder:"メールアドレス", autocomplete: "email" %>
+        <%= f.password_field :password, class: "field", placeholder:"パスワード(6文字以上)", autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, class: "field", placeholder:"パスワード(再入力)", autocomplete: "new-password" %>
+        <%= f.submit "登録", class: "form-sumbit" %>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
