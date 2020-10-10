@@ -28,7 +28,7 @@
                 <i class="fas fa-sign-in-alt"></i> 新規登録
               <% end %>
             <% else %>
-              <%= link_to "#", class: "friend" do %>
+              <%= link_to new_post_path, class: "friend" do %>
                 <i class="fas fa-address-card"></i> フレンド募集
               <% end %>
               <%= link_to destroy_user_session_path, method: :delete, class: "user" do %>

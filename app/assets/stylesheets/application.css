@@ -101,7 +101,6 @@ header {
   width: 100%;
   background-color: rgb(66, 193, 231);
   display: flex;
-  color: white;
 }
 
 .header-left {
@@ -111,6 +110,7 @@ header {
 .header-logo {
   padding-left: 40px;
   font-style: italic;
+  color: white;
 }
 
 .header-right {
@@ -124,6 +124,8 @@ header {
 
 .user, .friend {
   padding: 30px 20px;
+  text-decoration: none;
+  color: white;
 }
 
 li {
@@ -146,7 +148,7 @@ li {
 
 /* topページ */
 
-/* 新規登録ページ */
+/* ユーザー関連 */
 .box-inner {
   width: 400px;
   margin: auto;
@@ -159,7 +161,7 @@ li {
   padding: 8px;
 }
 
-.form-sumbit {
+.form-submit {
   width: 45%;
   margin: 20px 0 15px 0;
   padding: 8px;
@@ -167,6 +169,19 @@ li {
   color: white;
   border: 0;
 }
-/* 新規登録ページ */
+/* ユーザー関連 */
 
-/* ログインページ */
+/* 投稿画面 */
+.form {
+  width: 500px;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.form-area {
+  width: 100%;
+  margin-top: 15px;
+  padding: 8px;
+}
+
+/* 投稿画面 */
