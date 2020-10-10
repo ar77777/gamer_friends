@@ -4,12 +4,28 @@
     <title>Gamerfriends</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/432076985f.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class = "header-left">
+        <h1 class = "header-logo">Gamer friends</h1>
+      </div>
+      <div class = header-right>
+        <div class = "navbar">
+          <ul class = "nav-lists">
+            <li class = "friend"><i class="fas fa-address-card"></i> フレンド募集</li>
+            <li class = "friend"><i class="fas fa-users"></i> フレンド一覧</li>
+            <li class = "user"><i class="fas fa-sign-in-alt"></i> ログイン</li>
+            <li class = "user"><i class="fas fa-user-plus"></i> 新規登録</li>
+            <li class = "user"><i class="fas fa-sign-out-alt"></i> ログアウト</li>
+          </ul>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

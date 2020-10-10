@@ -94,3 +94,34 @@ input, select {
     vertical-align:middle;
 }
 /* リセットCSS */
+
+/* header */
+header {
+  height: 10vh;
+  width: 100%;
+  background-color: rgb(66, 193, 231);
+  display: flex;
+  color: white;
+}
+
+.header-left {
+  width: 60%;
+}
+
+.header-logo {
+  padding-left: 40px;
+}
+
+.header-right {
+  width: 40%;
+  padding: 30px;
+}
+
+.nav-lists {
+  display: flex;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
