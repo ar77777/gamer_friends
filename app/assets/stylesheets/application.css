@@ -105,7 +105,7 @@ header {
 }
 
 .header-left {
-  width: 60%;
+  width: 50%;
 }
 
 .header-logo {
@@ -114,7 +114,7 @@ header {
 }
 
 .header-right {
-  width: 40%;
+  width: 50%;
   padding: 30px;
 }
 
@@ -142,3 +142,28 @@ li {
 }
 
 /* topページ */
+
+/* 新規登録ページ */
+.box-inner {
+  width: 400px;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.field {
+  width: 100%;
+  margin-top: 15px;
+  padding: 8px;
+}
+
+.form-sumbit {
+  width: 45%;
+  margin: 20px 0 15px 0;
+  padding: 8px;
+  background-color: rgb(66, 193, 231);
+  color: white;
+  border: 0;
+}
+/* 新規登録ページ */
+
+/* ログインページ */
