@@ -1,7 +1,7 @@
 <div class = "container">
   <% @posts.each do |post| %>
     <div class = "col-md-3 posts">
-      <%= image_tag "test.jpg", class: "img-responsive"%>
+      <%= image_tag post.user.image, class: "img-responsive" if post.user.image.attached? %>
       <p class = "user-nickname">名前: <%= post.user.nickname %></p>
       <div class = "game-title">ゲーム名: <%= post.game_title %></div>
     </div>
