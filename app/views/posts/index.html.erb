@@ -1,9 +1,14 @@
 <div class = "container">
   <% @posts.each do |post| %>
     <div class = "col-md-3 posts">
-      <%= image_tag post.user.image, class: "img-responsive" if post.user.image.attached? %>
+      <% if post.user.image.attached? %>
+        <%= image_tag post.user.image, class: "img-responsive" %>
+      <% else %>
+        <%= image_tag 'noimage.jpg', class: "img-responsive" %>
+      <% end %>
       <p class = "user-nickname">名前: <%= post.user.nickname %></p>
       <div class = "game-title">ゲーム名: <%= post.game_title %></div>
     </div>
   <% end %>
 </div>
+<%= paginate @posts, class:"pagination" %>

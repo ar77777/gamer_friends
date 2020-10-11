@@ -195,7 +195,7 @@ li {
 
 /* 投稿一覧画面 */
 .container {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .posts {
@@ -213,5 +213,9 @@ li {
   width:  180px;
   height: 180px;
   margin: 0 auto;
+}
+
+.pagination {
+  margin-left: 45%;
 }
 /* 投稿一覧画面 */

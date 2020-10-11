@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  PER = 16
+
   def index
-    @posts = Post.includes(:user)
-    @user = User.all
+    @posts = Post.includes(:user).page(params[:page]).per(PER)
   end
 
   def new
