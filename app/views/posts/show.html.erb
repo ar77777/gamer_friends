@@ -1,3 +1,7 @@
-<%= image_tag(@post.user.image, class: "user-image") %>
+<% if @post.user.image.attached? %>
+  <%= image_tag(@post.user.image, class: "user-image") %>
+<% else %>
+  <%= image_tag("noimage.jpg", class: "user-image") %>
+<% end %>
 <%= @post.user.nickname %>
 <%= @post.game_title %>
