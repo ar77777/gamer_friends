@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 /* リセットCSS */
 html, body, div, span, object, iframe,
 p, blockquote, pre,
@@ -185,3 +188,26 @@ li {
 }
 
 /* 投稿画面 */
+
+/* 投稿一覧画面 */
+.container {
+  margin-top: 100px;
+}
+
+.posts {
+  margin: 22px 0;
+  text-align: center;
+}
+
+.user-nickname{
+  margin: 10px 0;
+  font-size: 19px;
+}
+
+.img-responsive{
+  border-radius: 50%;
+  width:  180px;
+  height: 180px;
+  margin: 0 auto;
+}
+/* 投稿一覧画面 */

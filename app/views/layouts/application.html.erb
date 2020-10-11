@@ -17,7 +17,7 @@
       <div class = header-right>
         <div class = "navbar">
           <ul class = "nav-lists">
-            <%= link_to "#", class: "friend" do %>
+            <%= link_to posts_path, class: "friend" do %>
               <i class="fas fa-sign-in-alt"></i> フレンド一覧
             <% end %>
             <% unless user_signed_in? %>
