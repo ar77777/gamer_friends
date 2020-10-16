@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
-  #association
+  # association
   belongs_to :user
 end

@@ -4,41 +4,99 @@
     <title>Gamerfriends</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/432076985f.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <header>
-      <div class = "header-left">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <%= link_to root_path, class: "navbar-brand text-white" do %>Gamer friends<% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-left">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light my-2 my-sm-0" type="submit">検索</button>
+          </form>
+        </div>
+        <div class="navbar-right">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to posts_path, class: "nav-link text-white" do %>
+            <i class="fas fa-sign-in-alt"></i> フレンド一覧
+          <% end %>
+          </li>
+          <% unless user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+                <i class="fas fa-sign-in-alt"></i> ログイン
+              <% end %>
+              </li>
+            <li class="nav-item">
+              <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+                <i class="fas fa-sign-in-alt"></i> 新規登録
+              <% end %>
+            </li>
+          <% else %>
+              <li class="nav-item">
+                <%= link_to new_post_path, class: "nav-link text-white" do %>
+                  <i class="fas fa-address-card"></i> フレンド募集
+                <% end %>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">マイページ</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"><i class="far fa-id-badge"></i> プロフィール</a>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <i class="fas fa-sign-out-alt"></i> ログアウト
+              <% end %>
+              <a class="dropdown-item" href="#"><i class="far fa-trash-alt"></i> アカウント削除</a>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+    </header>
+      <%# <div class = "header-left">
         <h1 class = "header-logo">Gamer friends</h1>
       </div>
       <div class = header-right>
         <div class = "navbar">
           <ul class = "nav-lists">
             <%= link_to posts_path, class: "friend" do %>
-              <i class="fas fa-sign-in-alt"></i> フレンド一覧
+              <%# <i class="fas fa-sign-in-alt"></i> フレンド一覧
             <% end %>
-            <% unless user_signed_in? %>
-              <%= link_to new_user_session_path, class: "user" do %>
-                <i class="fas fa-sign-in-alt"></i> ログイン
+            <%# <% unless user_signed_in? %>
+              <%# <%= link_to new_user_session_path, class: "user" do %>
+                <%# <i class="fas fa-sign-in-alt"></i> ログイン %>
+              <%# <% end %>
+              <%# <%= link_to new_user_registration_path, class: "user" do %>
+                <%# <i class="fas fa-sign-in-alt"></i> 新規登録
               <% end %>
-              <%= link_to new_user_registration_path, class: "user" do %>
-                <i class="fas fa-sign-in-alt"></i> 新規登録
+            <%# <% else %>
+              <%# <%= link_to new_post_path, class: "friend" do %>
+                <%# <i class="fas fa-address-card"></i> フレンド募集
               <% end %>
-            <% else %>
-              <%= link_to new_post_path, class: "friend" do %>
-                <i class="fas fa-address-card"></i> フレンド募集
+              <%# <%= link_to destroy_user_session_path, method: :delete, class: "user" do %>
+                <%# <i class="fas fa-sign-out-alt"></i> ログアウト
               <% end %>
-              <%= link_to destroy_user_session_path, method: :delete, class: "user" do %>
-                <i class="fas fa-sign-out-alt"></i> ログアウト
-              <% end %>
-            <% end %>
-          </ul>
+            <%# <% end %>
+          <%# </ul>
         </div>
-      </div>
-    </header>
+      </div> %>
+    <%# </header> %>
     <%= yield %>
   </body>
 </html>

@@ -98,42 +98,47 @@ input, select {
 }
 /* リセットCSS */
 
+.navbar-brand {
+  font-size: 1.9rem;
+}
+
+
 /* header */
-header {
-  height: 10vh;
-  width: 100%;
-  background-color: rgb(66, 193, 231);
-  display: flex;
-}
+// header {
+//   height: 10vh;
+//   width: 100%;
+//   background-color: rgb(66, 193, 231);
+//   display: flex;
+// }
 
-.header-left {
-  width: 50%;
-}
+// .header-left {
+//   width: 50%;
+// }
 
-.header-logo {
-  padding-left: 40px;
-  font-style: italic;
-  color: white;
-}
+// .header-logo {
+//   padding-left: 40px;
+//   font-style: italic;
+//   color: white;
+// }
 
-.header-right {
-  width: 50%;
-}
+// .header-right {
+//   width: 50%;
+// }
 
-.nav-lists {
-  display: flex;
-  justify-content: flex-end;
-}
+// .nav-lists {
+//   display: flex;
+//   justify-content: flex-end;
+// }
 
-.user, .friend {
-  padding: 30px 20px;
-  text-decoration: none;
-  color: white;
-}
+// .user, .friend {
+//   padding: 30px 20px;
+//   text-decoration: none;
+//   color: white;
+// }
 
-li {
-  list-style: none;
-}
+// li {
+//   list-style: none;
+// }
 /* header */
 
 /* topページ */
@@ -152,30 +157,30 @@ li {
 /* topページ */
 
 /* ユーザー関連 */
-.box-inner {
-  width: 400px;
-  margin: auto;
-  padding-top: 30px;
-}
+// .box-inner {
+//   width: 400px;
+//   margin: auto;
+//   padding-top: 30px;
+// }
 
-.field {
-  width: 100%;
-  margin-top: 15px;
-  padding: 8px;
-}
+// .field {
+//   width: 100%;
+//   margin-top: 15px;
+//   padding: 8px;
+// }
 
-.submit {
-  width: 45%;
-  margin: 20px 0 15px 0;
-  padding: 8px;
-  background-color: rgb(66, 193, 231);
-  color: white;
-  border: 0;
-}
+// .submit {
+//   width: 45%;
+//   margin: 20px 0 15px 0;
+//   padding: 8px;
+//   background-color: rgb(66, 193, 231);
+//   color: white;
+//   border: 0;
+// }
 
-.image {
-  margin: 20px 0 15px 0;
-}
+// .image {
+//   margin: 20px 0 15px 0;
+// }
 /* ユーザー関連 */
 
 /* 投稿画面 */
@@ -200,7 +205,7 @@ li {
 
 .posts {
   margin: 22px 0;
-  text-align: center;
+  // text-align: center;
 }
 
 .user-nickname{
