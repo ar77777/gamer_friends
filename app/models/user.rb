@@ -8,7 +8,7 @@ class User < ApplicationRecord
   # active_storage
   has_one_attached :image
 
-  validates :nickname, presence: true, unless: :was_attached?
+  validates :nickname, :sex_id, :age_id, presence: true, unless: :was_attached?
 
   def was_attached?
     image.attached?
