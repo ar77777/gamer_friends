@@ -1,14 +1,16 @@
 class PostsController < ApplicationController
 
+  PER = 18
+
   def index
     @post = Post.new
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user).order(created_at: :desc).page(params[:page]).per(PER)
   end
 
   def create
     @post = Post.new(post_params)
     @post.save
-    @posts = Post.all
+    @posts = Post.includes(:user).order(created_at: :desc)
   end
 
   private
