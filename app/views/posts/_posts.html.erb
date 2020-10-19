@@ -3,12 +3,18 @@
     <% posts.each do |post| %>
       <div class="col-xs-9 col-sm-5 col-md-3 mt-5 mx-2 shadow p-3 mb-5 bg-white rounded">
         <div class="card m-1">
-          <%= image_tag post.user.image.variant(resize:'250x200') %>
+          <% if post.user.image.attached? %>
+            <%= image_tag post.user.image.variant(resize:'250x200') %>
+          <% else %>
+            <%= image_tag 'noimage.jpg', size: '286x200' %>
+          <% end %>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            <button class="btn btn-primary mb-2"><%= post.user.nickname %>さんとDMする</button>
-            <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= post.user.nickname %></li>
+            <% if post.user_id != current_user.id%>
+              <button class="btn btn-primary mb-2"><%= post.user.nickname %>さんとDMする</button>
+            <% end %>
+            <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= post.user.nickname %>&thinsp;(<%= post.user.sex_id %>)&thinsp;<%= post.user.sex_id %></li>
             <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %></li>
             <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
             <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
