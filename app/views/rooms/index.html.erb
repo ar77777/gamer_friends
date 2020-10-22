@@ -1,0 +1,3 @@
+<% @rooms.each do |room| %>
+  <%= render 'posts/posts', locals: {posts: room.post} %>
+<% end %>
