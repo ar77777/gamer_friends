@@ -6,19 +6,16 @@
           <% if post.user.image.attached? %>
             <%= image_tag post.user.image.variant(resize:'250x200') %>
           <% else %>
-            <%= image_tag 'noimage.jpg', size: '286x200' %>
+            <%= image_tag 'noimage.jpg', size: '286x188' %>
           <% end %>
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            <% if post.user_id != current_user.id%>
-              <button class="btn btn-primary mb-2"><%= post.user.nickname %>さんとDMする</button>
-            <% end %>
+            <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
             <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= post.user.nickname %>&thinsp;(<%= post.user.sex_id %>)&thinsp;<%= post.user.sex_id %></li>
             <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %></li>
             <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
             <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
-            <li class="list-group-item">&emsp;<%= post.text %></li>
           </ul>
         </div>
       </div>

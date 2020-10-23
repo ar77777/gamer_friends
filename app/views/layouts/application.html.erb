@@ -22,7 +22,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mr-5" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <form class="form-inline mx-3 my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -45,8 +45,8 @@
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to new_post_path, class: "nav-link text-white" do %>
-                    <i class="fas fa-address-card"></i> フレンド募集
+                  <%= link_to rooms_path, class: "nav-link text-white" do %>
+                    <i class="fas fa-address-card"></i> DM一覧
                   <% end %>
                 </li>
                 <li class="nav-item dropdown">

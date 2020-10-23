@@ -17,7 +17,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-            <%= form_with model:@post do |form| %>
+      <%= form_with model:@post do |form| %>
         <div class="modal-body">
           <div class="form-group">
             <%= form.select :platform, [ ["PC","PC"], ["PS4", "PS4"], ["XBOX", "XBOX"] ,["3DS", "3DS"], ["スマホ", "スマホ"], ["その他", "その他"] ], {prompt: "プラットフォームを選択してください"}, {class: "form-control"} %>

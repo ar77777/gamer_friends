@@ -1,0 +1,9 @@
+<div class="row text-center">
+  <div class="col-ms-10 fixed-bottom mb-2 ">
+    <%= form_with model:@message, url: room_messages_path(@room.id) do |form| %>
+      <%= form.text_field :message, placeholder: "メッセージ入力", class:"p-2 w-75" %>
+      <%= form.hidden_field :room_id, value: @room.id %>
+      <%= form.submit "送信", class:"btn btn-primary", id:"submit" %>
+    <% end %>
+  </div>
+</div>

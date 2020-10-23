@@ -1,7 +1,37 @@
-<% if @post.user.image.attached? %>
-  <%= image_tag(@post.user.image, class: "user-image") %>
-<% else %>
-  <%= image_tag("noimage.jpg", class: "user-image") %>
-<% end %>
-<%= @post.user.nickname %>
-<%= @post.game_title %>
+<%# あとで編集する %>
+
+
+<div class="container">
+  <div class="row d-flex justify-content-around">
+      <div class="col-xs-9 col-sm-5 col-md-3 mt-5 mx-2 shadow p-3 mb-5 bg-white rounded">
+        <div class="card m-1">
+          <% if @post.user.image.attached? %>
+            <%= image_tag @post.user.image.variant(resize:'250x200') %>
+          <% else %>
+            <%= image_tag 'noimage.jpg', size: '286x188' %>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <% unless @post.user.id == current_user.id %>
+              <% if @isroom == true %>
+                <%= link_to "#{@post.user.nickname}さんとDMする", room_path(@roomid),class: "btn btn-primary mb-2" %>
+              <% else %>
+                <%= form_with model: @room, local: true, class:"text-center mb-2" do |form| %>
+                  <%= fields_for @roomuser do |r| %>
+                    <%= r.hidden_field :user_id, value: @post.user.id %>
+                  <% end %>
+                  <%= form.submit "#{@post.user.nickname}さんとDMする", class: "btn btn-primary" %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= @post.user.nickname %>&thinsp;(<%= @post.user.sex_id %>)&thinsp;<%= @post.user.sex_id %></li>
+            <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= @post.game_title %></li>
+            <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= @post.time_zone %></li>
+            <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= @post.call %></li>
+            <li class="list-group-item">&emsp;<%= @post.text %></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>

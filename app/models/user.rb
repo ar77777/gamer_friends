@@ -4,6 +4,9 @@ class User < ApplicationRecord
 
   # association
   has_many :posts
+  has_many :room_users
+  has_many :rooms, through: :room_users
+  has_many :messages, dependent: :destroy
 
   # active_storage
   has_one_attached :image
