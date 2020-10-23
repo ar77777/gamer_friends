@@ -66,33 +66,5 @@
       </nav>
     </header>
   </body>
-      <%# <div class = "header-left">
-        <h1 class = "header-logo">Gamer friends</h1>
-      </div>
-      <div class = header-right>
-        <div class = "navbar">
-          <ul class = "nav-lists">
-            <%= link_to posts_path, class: "friend" do %>
-              <%# <i class="fas fa-sign-in-alt"></i> フレンド一覧
-            <% end %>
-            <%# <% unless user_signed_in? %>
-              <%# <%= link_to new_user_session_path, class: "user" do %>
-                <%# <i class="fas fa-sign-in-alt"></i> ログイン %>
-              <%# <% end %>
-              <%# <%= link_to new_user_registration_path, class: "user" do %>
-                <%# <i class="fas fa-sign-in-alt"></i> 新規登録
-              <% end %>
-            <%# <% else %>
-              <%# <%= link_to new_post_path, class: "friend" do %>
-                <%# <i class="fas fa-address-card"></i> フレンド募集
-              <% end %>
-              <%# <%= link_to destroy_user_session_path, method: :delete, class: "user" do %>
-                <%# <i class="fas fa-sign-out-alt"></i> ログアウト
-              <% end %>
-            <%# <% end %>
-          <%# </ul>
-        </div>
-      </div> %>
-    <%# </header> %>
   <%= yield %>
 </html>
