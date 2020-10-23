@@ -2,7 +2,13 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @rooms = current_user.rooms.order("updated_at DESC")
+    @currentrooms = current_user.room_users
+    myRoomIds = []
+    @currentrooms.each do |entry|
+      myRoomIds << entry.room_id
+    end
+
+    @anotherrooms = RoomUser.where(room_id: myRoomIds).where.not(user_id: current_user)
   end
 
   def create
@@ -18,6 +24,8 @@ class RoomsController < ApplicationController
       @messages = @room.messages
       @message = Message.new
       @room_users = @room.room_users
+    else
+      redirect_back(fallback_location: root_path)
     end
   end
 
