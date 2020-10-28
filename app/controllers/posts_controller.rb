@@ -15,6 +15,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc)
+    
     @currentuser = RoomUser.where(user_id:current_user.id)
     @postuser = RoomUser.where(user_id:@post.user.id)
 
