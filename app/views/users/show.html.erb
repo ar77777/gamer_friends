@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-auto mt-5">
+      <div class="card">
+        <% if @user.image.attached? %>
+            <%= image_tag @user.image.variant(resize:'250x200') %>
+        <% end %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= @user.nickname %></li>
+          <li class="list-group-item"><%= @user.sex_id %></li>
+          <li class="list-group-item"><%= @user.age_id %></li>
+        </ul>
+      </div>
+    <div>
+  </div>
+</div>
+<div class="container">
+  <div class="row mt-3">
+    <% @user.posts.each do |post| %>
+      <div class="col-md-3 my-2">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
+            <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %></li>
+            <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
+            <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

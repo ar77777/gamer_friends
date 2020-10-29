@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  PER = 18
+  PER = 16
 
   def index
     @post = Post.new
