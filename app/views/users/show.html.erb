@@ -6,9 +6,9 @@
             <%= image_tag @user.image.variant(resize:'250x200') %>
         <% end %>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= @user.nickname %></li>
-          <li class="list-group-item"><%= @user.sex_id %></li>
-          <li class="list-group-item"><%= @user.age_id %></li>
+          <li class="list-group-item">ニックネーム：<%= @user.nickname %></li>
+          <li class="list-group-item">性別：<%= @user.sex_id %></li>
+          <li class="list-group-item">年齢：<%= @user.age_id %></li>
         </ul>
       </div>
     <div>
