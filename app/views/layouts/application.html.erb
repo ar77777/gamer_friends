@@ -54,7 +54,9 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">マイページ</a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#"><i class="far fa-id-badge"></i> プロフィール</a>
+                    <%= link_to user_path(current_user.id), class: "dropdown-item" do %>
+                      <i class="far fa-id-badge"></i> プロフィール
+                    <% end %>
                     <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
                       <i class="fas fa-sign-out-alt"></i> ログアウト
                     <% end %>
