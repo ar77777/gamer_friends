@@ -1,0 +1,20 @@
+<div class ="container text-center">
+  <div class = "row d-flex flex-column col-sm-10 col-md-5 mx-auto">
+    <h2 class="mt-5"><%= current_user.nickname %>のプロフィール編集</h2>
+    <%= form_with model:@user, class:'d-flex flex-column mx-auto', local: true do |form| %>
+      <%= form.label :nickname, 'ニックネーム' %>
+      <%= form.text_field :nickname, autofocus: true, class: 'p-2 my-2 form-control' %>
+      <%= form.label :age_id, '年齢' %>
+      <%= form.collection_select(:age_id, Age.all, :id, :name, {autofocus: true, autocomplete: "age"}, {class: "p-2 my-2 form-control"}) %>
+      <%= form.label :sex_id, '性別' %>
+      <%= form.collection_select(:sex_id, Sex.all, :id, :name, {autofocus: true, autocomplete: "sex"}, {class: "p-2 my-2 form-control"}) %>
+      <%= form.label :email, 'メールアドレス' %>
+      <%= form.email_field :email, autofocus: true, class: "p-2 my-2 form-control", placeholder:"メールアドレス", autocomplete: "email" %>
+      <%= form.label :password, 'パスワード' %>
+      <%= form.password_field :password, class: "p-2 my-2 form-control", placeholder:"パスワード(6文字以上)", autocomplete: "new-password" %>
+      <%= form.label :email, 'パスワード確認用' %>
+      <%= form.password_field :password_confirmation, class: "p-2 my-2 form-control", placeholder:"パスワード(再入力)", autocomplete: "new-password" %>
+      <%= form.submit 'プロフィール編集を完了する', class: 'p-2 my-4 btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
