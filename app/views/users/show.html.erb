@@ -7,9 +7,11 @@
         <% end %>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">ニックネーム：<%= @user.nickname %></li>
-          <li class="list-group-item">性別：<%= @user.sex_id %></li>
-          <li class="list-group-item">年齢：<%= @user.age_id %></li>
+          <li class="list-group-item">性別：<%= @user.sex.name %></li>
+          <li class="list-group-item mb-2">年齢：<%= @user.age.name %></li>
         </ul>
+        <%= link_to "プロフィール編集", edit_user_path(current_user.id), class:"btn btn-secondary" %>
+        <%= link_to "アカウント削除", edit_user_path(current_user.id), class:"btn btn-danger" %>
       </div>
     <div>
   </div>

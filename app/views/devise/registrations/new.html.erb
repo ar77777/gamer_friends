@@ -6,8 +6,8 @@
     </div>
     <div class = "row d-flex flex-column col-sm-10 col-md-5 mx-auto">
       <%= f.text_field :nickname, autofocus: true, class: "p-2 mt-4 form-control", placeholder: "ニックネーム", autocomplete: "nickname" %>
-      <%= f.text_field :sex_id, autofocus: true, class: "p-2 mt-4 form-control", placeholder: "性別", autocomplete: "sex" %>
-      <%= f.text_field :age_id, autofocus: true, class: "p-2 mt-4 form-control", placeholder:"年齢", autocomplete: "age" %>
+      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {autocomplete: "sex"}, {class: "p-2 mt-4 form-control"}) %>
+      <%= f.collection_select(:age_id, Age.all, :id, :name, {autocomplete: "age"}, {class: "p-2 mt-4 form-control"}) %>
       <%= f.email_field :email, autofocus: true, class: "p-2 mt-4 form-control", placeholder:"メールアドレス", autocomplete: "email" %>
       <%= f.password_field :password, class: "p-2 mt-4 form-control", placeholder:"パスワード(6文字以上)", autocomplete: "new-password" %>
       <%= f.password_field :password_confirmation, class: "p-2 mt-4 form-control", placeholder:"パスワード(再入力)", autocomplete: "new-password" %>
