@@ -2,15 +2,13 @@
   <div class="row">
     <% if @search_posts %>
       <% @search_posts.each do |post| %>
-        <div class="col-sm-12 col-md-3 mt-5 border">
-          <div class="mt-3">
+        <div class="col-sm-12 col-md-3 mx-auto mt-5">
+          <div class="card">
             <% if post.user.image.attached? %>
-              <%= image_tag post.user.image.variant(resize:'250x200'), class:'rounded mx-auto d-block' %>
+              <%= image_tag post.user.image.variant(resize:'250x200') %>
             <% else %>
-              <%= image_tag 'noimage.jpg', size: '294x188', class:'rounded mx-auto d-block' %>
+              <%= image_tag 'noimage.jpg', size: '303x188' %>
             <% end %>
-          </div>
-          <div class="card-body">
             <ul class="list-group list-group-flush">
               <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
               <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= link_to post.user.nickname, user_path(post.user_id), class:"text-decoration-none" %>&thinsp;(<%= post.user.age.name %>)&thinsp;<%= post.user.sex.name %></li>
@@ -23,15 +21,13 @@
       <% end %>
     <% else %>
       <% @posts.each do |post| %>
-        <div class="col-sm-12 col-md-3 mt-5 border">
-          <div class="mt-3">
+        <div class="col-sm-12 col-md-3 mx-auto mt-5">
+          <div class="card">
             <% if post.user.image.attached? %>
-              <%= image_tag post.user.image.variant(resize:'250x200'), class:'rounded mx-auto d-block' %>
+              <%= image_tag post.user.image.variant(resize:'250x200') %>
             <% else %>
-              <%= image_tag 'noimage.jpg', size: '294x188', class:'rounded mx-auto d-block' %>
+              <%= image_tag 'noimage.jpg', size: '294x188' %>
             <% end %>
-          </div>
-          <div class="card-body">
             <ul class="list-group list-group-flush">
               <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
               <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= post.user.nickname %>&thinsp;(<%= post.user.sex_id %>)&thinsp;<%= post.user.sex_id %></li>
