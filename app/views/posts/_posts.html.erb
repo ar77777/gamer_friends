@@ -5,9 +5,9 @@
         <div class="col-sm-12 col-md-3 mx-auto mt-5">
           <div class="card">
             <% if post.user.image.attached? %>
-              <%= image_tag post.user.image.variant(resize:'250x200') %>
+              <%= image_tag post.user.image.variant(resize:'350x213'), class:"img-fluid" %>
             <% else %>
-              <%= image_tag 'noimage.jpg', size: '303x188' %>
+              <%= image_tag 'noimage.jpg', class:"img-fluid thumbnail" %>
             <% end %>
             <ul class="list-group list-group-flush">
               <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>

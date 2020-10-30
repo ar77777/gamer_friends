@@ -25,7 +25,7 @@
                 <% end %>
               <% end %>
             <% end %>
-            <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= @post.user.nickname %>&thinsp;(<%= @post.user.sex_id %>)&thinsp;<%= @post.user.sex_id %></li>
+            <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= @post.user.nickname %>&thinsp;(<%= @post.user.age.name %>)&thinsp;<%= @post.user.sex.name %></li>
             <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= @post.game_title %></li>
             <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= @post.time_zone %></li>
             <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= @post.call %></li>
