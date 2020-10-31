@@ -2,7 +2,7 @@
   <div class="row">
     <% if @search_posts %>
       <% @search_posts.each do |post| %>
-        <div class="col-sm-12 col-md-3 mx-auto mt-5">
+        <div class="col-sm-12 col-md-3 my-2">
           <div class="card">
             <% if post.user.image.attached? %>
               <%= image_tag post.user.image.variant(resize:'350x213'), class:"img-fluid" %>
@@ -21,7 +21,7 @@
       <% end %>
     <% else %>
       <% @posts.each do |post| %>
-        <div class="col-sm-12 col-md-3 mx-auto mt-5">
+        <div class="col-sm-12 col-md-3 my-2 mt-5">
           <div class="card">
             <% if post.user.image.attached? %>
               <%= image_tag post.user.image.variant(resize:'250x200') %>
