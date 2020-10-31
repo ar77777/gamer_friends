@@ -45,5 +45,9 @@
 </div>
 
 <div class="ml-3 my-5">
-  <%= paginate @posts %>
+  <% if @search_posts != nil %>
+    <%= paginate @search_posts %>
+  <% else %>
+    <%= paginate @posts %>
+  <% end %>
 </div>
