@@ -9,7 +9,7 @@
 </div>
 <div class="row mx-3">
   <% if @messages.present? %>
-    <% @messages.each do |m| %>
+    <% @messages.sort.reverse.each do |m| %>
       <% if m.user.nickname == current_user.nickname %>
         <p class="text-right h5">
           <strong><%= m.message %></strong>
