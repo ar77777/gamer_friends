@@ -20,7 +20,7 @@
       <% else %>
         <p class="h5"><strong><%= m.message %></p></strong>
         <p class="mb-3 text-muted">
-          <small><%= "by " + m.user.nickname %></small>
+          <small><%= "by " %><%= link_to m.user.nickname + "さん", user_path(m.user.id), class:"text-decoration-none" %></small>
         </p>
       <% end %>
     <% end %>

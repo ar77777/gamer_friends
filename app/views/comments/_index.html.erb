@@ -5,9 +5,8 @@
   <% unless comment.id.nil? %>
     <div class="container">
       <div class="row border mb-2">
-        <%# <p><%= link_to "@#{comment.user.nickname}", users_user_path(comment.user.id) %>
         <div class="my-2">
-          <p><%= comment.user.nickname %></p>
+          <p><%= link_to comment.user.nickname, user_path(comment.user_id) %></p>
         </div>
         <div class="ml-2">
           <%= comment.content %>
