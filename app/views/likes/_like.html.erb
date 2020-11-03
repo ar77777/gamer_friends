@@ -1,3 +1,4 @@
+<%= render partial: 'comments/count',locals: {post: post} %>
 <% if user_signed_in? %>
   <% unless post.like_user(current_user.id).blank? %>
     <%= link_to post_like_path(post_id: post.id ,id: post.likes[0].id), class:"text-decoration-none", method: :delete, remote: true do %>

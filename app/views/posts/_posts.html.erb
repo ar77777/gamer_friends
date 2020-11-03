@@ -37,6 +37,9 @@
               <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %>(<%= post.platform %>)</li>
               <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
               <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
+              <li class="list-group-item", id="likes_buttons_<%= post.id %>">
+                <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
+              </li>
             </ul>
           </div>
         </div>
