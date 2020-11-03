@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
+
   def create
     @room = Room.find(params[:message][:room_id])
     if RoomUser.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
