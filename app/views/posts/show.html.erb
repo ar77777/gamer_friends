@@ -48,10 +48,10 @@
     </ul>
     <hr>
     <% if user_signed_in? %>
-        <div class="comment-create">
-            <h3 class="text-left">コメントを投稿する</h3>
-            <%= render partial: 'comments/form', locals: { comment: @comment, item: @item } %>
-        </div>
+      <div class="comment-create">
+        <h3 class="text-left">コメントを投稿する</h3>
+        <%= render partial: 'comments/form', locals: { comment: @comment, item: @item } %>
+      </div>
     <% end %>
   </div>
 </div>
