@@ -12,9 +12,12 @@
             <ul class="list-group list-group-flush">
               <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
               <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= link_to post.user.nickname, user_path(post.user_id), class:"text-decoration-none" %>&thinsp;(<%= post.user.age.name %>)&thinsp;<%= post.user.sex.name %></li>
-              <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %></li>
+              <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %>(<%= post.platform %>)</li>
               <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
               <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
+              <li class="list-group-item", id="likes_buttons_<%= post.id %>">
+                <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
+              </li>
             </ul>
           </div>
         </div>
@@ -31,7 +34,7 @@
             <ul class="list-group list-group-flush">
               <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
               <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= post.user.nickname %>&thinsp;(<%= post.user.sex_id %>)&thinsp;<%= post.user.sex_id %></li>
-              <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %></li>
+              <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %>(<%= post.platform %>)</li>
               <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
               <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
             </ul>
