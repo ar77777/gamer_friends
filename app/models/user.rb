@@ -17,11 +17,8 @@ class User < ApplicationRecord
   has_one_attached :image
 
   # validation
-  validates :nickname, :sex_id, :age_id, presence: true, unless: :was_attached?
+  validates :nickname, presence: true
   validates :sex_id, numericality: { other_than: 1 } 
   validates :age_id, numericality: { other_than: 1 } 
 
-  def was_attached?
-    image.attached?
-  end
 end
