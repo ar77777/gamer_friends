@@ -1,30 +1,11 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:show,:edit]
-  before_action :current_user_check, only: [:edit,:update]
+  before_action :authenticate_user!, only: [:show]
   
   PER = 16
 
   def show
     @user = User.find(params[:id])
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    user = User.find(params[:id])
-    if user.update(user_params)
-      redirect_to user_path(current_user.id)
-    else
-      render :edit
-    end
-  end
-
-  private
-  def user_params
-    params.require(:user).permit(:nickname, :sex_id, :age_id)
   end
 
   def current_user_check
