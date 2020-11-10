@@ -1,56 +1,32 @@
 <div class="container">
-  <div class="row">
-    <% if @search_posts %>
-      <% @search_posts.each do |post| %>
-        <div class="col-sm-12 col-md-3 my-2" style="width: 20rem;" >
-          <div class="card">
-            <% if post.user.image.attached? %>
-              <%= image_tag post.user.image.variant(resize:'350x213'), class:"img-fluid" %>
-            <% else %>
-              <%= image_tag 'noimage.jpg', size: '300x170', class:"img-fluid" %>
-            <% end %>
-            <ul class="list-group list-group-flush">
-              <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
-              <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= link_to post.user.nickname, user_path(post.user_id), class:"text-decoration-none" %>&thinsp;(<%= post.user.age.name %>)&thinsp;<%= post.user.sex.name %></li>
-              <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %>(<%= post.platform %>)</li>
-              <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
-              <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
-              <li class="list-group-item", id="likes_buttons_<%= post.id %>">
-                <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
-              </li>
-              <div id = "post-destroy">
-                <% if post.user_id == current_user.id %>
-                  <%= link_to post_path(post), method: :delete, remote: true do %>
-                    <li class="list-group-item fas fa-trash" style="color: black;"></li>
-                  <% end %>
+  <div class="row mx-auto">
+    <% @search_posts.each do |post| %>
+      <div class="col-sm-6 col-md-3 my-2" style="width: 20rem;">
+        <div class="card">
+          <% if post.user.image.attached? %>
+            <%= image_tag post.user.image.variant(resize:'350x213'), class:"img-fluid" %>
+          <% else %>
+            <%= image_tag 'noimage.jpg', size: '300x170', class:"img-fluid" %>
+          <% end %>
+          <ul class="list-group list-group-flush">
+            <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
+            <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= link_to post.user.nickname, user_path(post.user_id), class:"text-decoration-none" %>&thinsp;(<%= post.user.age.name %>)&thinsp;<%= post.user.sex.name %></li>
+            <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %>(<%= post.platform %>)</li>
+            <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
+            <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
+            <li class="list-group-item", id="likes_buttons_<%= post.id %>">
+              <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
+            </li>
+            <div id = "post-destroy">
+              <% if post.user_id == current_user.id %>
+                <%= link_to post_path(post), method: :delete, remote: true do %>
+                  <li class="list-group-item fas fa-trash" style="color: black;"></li>
                 <% end %>
-              </div>
-            </ul>
-          </div>
+              <% end %>
+            </div>
+          </ul>
         </div>
-      <% end %>
-    <% else %>
-      <% @posts.each do |post| %>
-        <div class="col-sm-12 col-md-3 my-2 mt-5">
-          <div class="card">
-            <% if post.user.image.attached? %>
-              <%= image_tag post.user.image.variant(resize:'250x200') %>
-            <% else %>
-              <%= image_tag 'noimage.jpg', size: '300x188' %>
-            <% end %>
-            <ul class="list-group list-group-flush">
-              <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
-              <li class="list-group-item"><i class="fas fa-user"></i>&thinsp;&thinsp;&emsp;<%= post.user.nickname %>&thinsp;(<%= post.user.sex_id %>)&thinsp;<%= post.user.sex_id %></li>
-              <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %>(<%= post.platform %>)</li>
-              <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
-              <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
-              <li class="list-group-item", id="likes_buttons_<%= post.id %>">
-                <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>
