@@ -8,4 +8,8 @@ class Post < ApplicationRecord
   def like_user(user_id)
     likes.find_by(user_id: user_id)
   end
+
+  # validation
+  validates :game_title, :platform, :time_zone, :call, presence: true
+  validates :text, length:{ maximum: 100 }
 end
