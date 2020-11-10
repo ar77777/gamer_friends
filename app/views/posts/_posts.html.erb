@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row mx-auto">
+  <div class="row">
     <% @search_posts.each do |post| %>
-      <div class="col-sm-6 col-md-3 my-2" style="width: 20rem;">
+      <div class="col-sm-6 col-md-3 my-2 mx-auto" style="width: 20rem;">
         <div class="card">
           <% if post.user.image.attached? %>
             <%= image_tag post.user.image.variant(resize:'350x213'), class:"img-fluid" %>
@@ -18,9 +18,11 @@
               <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
             </li>
             <div id = "post-destroy">
-              <% if post.user_id == current_user.id %>
-                <%= link_to post_path(post), method: :delete, remote: true do %>
-                  <li class="list-group-item fas fa-trash" style="color: black;"></li>
+              <% if user_signed_in? %>
+                <% if post.user_id == current_user.id %>
+                  <%= link_to post_path(post), method: :delete, remote: true do %>
+                    <li class="list-group-item fas fa-trash" style="color: black;"></li>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
