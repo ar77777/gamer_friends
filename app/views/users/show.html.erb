@@ -13,7 +13,7 @@
           <li class="list-group-item mb-2">年齢：<%= @user.age.name %></li>
         </ul>
         <%= link_to "プロフィール編集", edit_user_registration_path, class:"btn btn-secondary" %>
-        <%= link_to "アカウント削除", edit_user_path(current_user.id), class:"btn btn-danger" %>
+        <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, class:"btn btn-danger" %>
       </div>
     <div>
   </div>

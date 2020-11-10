@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create,:show]
+  before_action :authenticate_user!, only: [:create,:show,:destroy]
 
   def index
     @post = Post.new
@@ -35,6 +35,11 @@ class PostsController < ApplicationController
         @roomuser = RoomUser.new
       end
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+      @post.destroy
   end
 
   private

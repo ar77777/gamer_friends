@@ -5,11 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # association
-  has_many :room_users
-  has_many :rooms, through: :room_users
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   belongs_to_active_hash :sex
   belongs_to_active_hash :age
 

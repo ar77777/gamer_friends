@@ -18,6 +18,13 @@
               <li class="list-group-item", id="likes_buttons_<%= post.id %>">
                 <%= render partial: 'likes/like', locals: { post: post, likes: @likes} %>
               </li>
+              <div id = "post-destroy">
+                <% if post.user_id == current_user.id %>
+                  <%= link_to post_path(post), method: :delete, remote: true do %>
+                    <li class="list-group-item fas fa-trash" style="color: black;"></li>
+                  <% end %>
+                <% end %>
+              </div>
             </ul>
           </div>
         </div>
