@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  private
   def current_user_check
     @user = User.find(params[:id])
     if @user.id != current_user.id
