@@ -9,6 +9,8 @@
       <%= f.collection_select(:age_id, Age.all, :id, :name, {autofocus: true, autocomplete: "age"}, {class: "p-2 my-2 form-control"}) %>
       <%= f.label :sex_id, '性別' %>
       <%= f.collection_select(:sex_id, Sex.all, :id, :name, {autofocus: true, autocomplete: "sex"}, {class: "p-2 my-2 form-control"}) %>
+      <%= f.label :image, '画像変更' %>
+      <p><%= f.file_field :image, autofocus: true, class: 'p-2 my-2' %></p>
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'p-2 my-2 form-control' %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
