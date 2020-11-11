@@ -4,9 +4,9 @@
       <div class="col-sm-6 col-md-3 my-2 mx-auto" style="width: 20rem;">
         <div class="card">
           <% if post.user.image.attached? %>
-            <%= image_tag post.user.image.variant(resize:'350x213'), class:"img-fluid" %>
+            <%= image_tag post.user.image.variant(resize:'300x200'), class:"img-fluid" %>
           <% else %>
-            <%= image_tag 'noimage.jpg', size: '300x170', class:"img-fluid" %>
+            <%= image_tag 'noimage.jpg', size: '280x230', class:"img-fluid" %>
           <% end %>
           <ul class="list-group list-group-flush">
             <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
