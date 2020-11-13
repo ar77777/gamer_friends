@@ -12,8 +12,10 @@
           <li class="list-group-item">性別：<%= @user.sex.name %></li>
           <li class="list-group-item mb-2">年齢：<%= @user.age.name %></li>
         </ul>
-        <%= link_to "プロフィール編集", edit_user_registration_path, class:"btn btn-secondary" %>
-        <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, class:"btn btn-danger" %>
+        <% if @user.id == current_user.id%>
+          <%= link_to "プロフィール編集", edit_user_registration_path, class:"btn btn-secondary" %>
+          <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, class:"btn btn-danger" %>
+        <% end %>
       </div>
     <div>
   </div>
