@@ -7,7 +7,7 @@ worker_processes 1
 
 #アプリケーションの設置されているディレクトリを指定
 # currentを指定
-working_directory app_path
+working_directory "#{app_path}/current/config/unicorn.conf"
 
 # それぞれ、sharedの中を参照するよう変更
 #Unicornの起動に必要なファイルの設置場所を指定
