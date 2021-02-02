@@ -31,6 +31,15 @@
             <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %></li>
             <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
             <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
+            <div id = "post-destroy">
+              <% if user_signed_in? %>
+                <% if post.user_id == current_user.id %>
+                  <%= link_to post_path(post), method: :delete, remote: true do %>
+                    <li class="list-group-item fas fa-trash" style="color: black;"></li>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           </ul>
         </div>
       </div>
