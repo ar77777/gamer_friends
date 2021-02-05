@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row mx-auto">
+    <div class="col-xs-9 col-sm-5 col-md-3 mt-5 mx-auto shadow p-3 mb-5 bg-white rounded" style="width: 20rem;">
+      <div class="card">
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image.variant(resize:'250x200'), class:"img-fluid" %>
+        <% else %>
+          <%= image_tag 'noimage.jpg', size: '320x188', class:"img-fluid" %>
+        <% end %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ニックネーム：<%= @user.nickname %></li>
+          <li class="list-group-item">性別：<%= @user.sex.name %></li>
+          <li class="list-group-item mb-2">年齢：<%= @user.age.name %></li>
+        </ul>
+        <% if @user.id == current_user.id%>
+          <%= link_to "プロフィール編集", edit_user_registration_path, class:"btn btn-secondary" %>
+          <%= link_to "アカウント削除", user_path(current_user.id), method: :delete, class:"btn btn-danger" %>
+        <% end %>
+      </div>
+    <div>
+  </div>
+</div>
+<h3>投稿一覧</h3>
+<div class="container">
+  <div class="row mt-3">
+    <% @user.posts.each do |post| %>
+      <div class="col-md-3 my-2">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <%= link_to "詳細", post_path(post.id), class:"btn btn-primary mb-2" %>
+            <li class="list-group-item"><i class="fas fa-gamepad"></i>&emsp;<%= post.game_title %></li>
+            <li class="list-group-item"><i class="far fa-clock"></i>&thinsp;&emsp;<%= post.time_zone %></li>
+            <li class="list-group-item"><i class="fas fa-phone-volume"></i>&thinsp;&thinsp;&thinsp;&emsp;<%= post.call %></li>
+            <div id = "post-destroy">
+              <% if user_signed_in? %>
+                <% if post.user_id == current_user.id %>
+                  <%= link_to post_path(post), method: :delete, remote: true do %>
+                    <li class="list-group-item fas fa-trash" style="color: black;"></li>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
